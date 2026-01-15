@@ -1,0 +1,53 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - move_to_location
+  - move_forward
+  - stop
+
+entities:
+  - area
+
+slots:
+  area:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: area
+
+responses:
+  utter_greet:
+  - text: "안녕하세요! 로봇 제어 시스템입니다. 어디로 이동할까요?"
+
+  utter_cheer_up:
+  - text: "기운 내세요! 제가 도와드릴 일이 있을까요?"
+
+  utter_did_that_help:
+  - text: "도움이 되었나요?"
+
+  utter_happy:
+  - text: "좋은 소식이네요!"
+
+  utter_goodbye:
+  - text: "안녕히 가세요!"
+
+  utter_iamabot:
+  - text: "저는 라즈베리파이 로봇을 제어하는 Rasa 챗봇입니다."
+
+  utter_stop:
+  - text: "로봇을 정지합니다."
+
+actions:
+  - action_move_robot
+  - action_send_goal
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

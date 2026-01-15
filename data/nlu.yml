@@ -1,0 +1,29 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - 안녕
+    - 안녕하세요
+    - 반가워
+    - 하이
+
+- intent: goodbye
+  examples: |
+    - 안녕히 계세요
+    - 다음에 봐
+    - 잘 가
+
+- intent: move_to_location
+  examples: |
+    - [A](area) 구역으로 가줘
+    - [B](area) 지점으로 이동해
+    - [C](area)로 이동
+    - [거실](area)로 가
+    - [주방](area)으로 가줘
+
+- intent: stop
+  examples: |
+    - 멈춰
+    - 정지
+    - 그만해
