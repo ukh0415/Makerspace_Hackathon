@@ -1,0 +1,12 @@
+version: "3.1"
+
+rules:
+- rule: move forward
+  steps:
+    - intent: move_forward
+    - action: action_send_goal
+
+- rule: stop
+  steps:
+    - intent: stop
+    - action: utter_stop
