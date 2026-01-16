@@ -14,6 +14,7 @@ intents:
 
 entities:
   - area
+  - platforms
 
 slots:
   area:
