@@ -14,7 +14,6 @@ intents:
 
 entities:
   - area
-  - platforms #dthis is what i added before
 
 slots:
   area:
