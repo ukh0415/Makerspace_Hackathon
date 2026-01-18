@@ -22,8 +22,15 @@ ros2 run turtlebot3_teleop teleop_keyboard
 
 
 <bashrc 설정>
-gedit ~/.bashrc 하면 메모장 열릴텐데 맨아래 붙여넣기
-
+gedit ~/.bashrc
+맨아래 붙여넣기
 source /opt/ros/humble/setup.bash
 export TURTLEBOT3_MODEL=burger
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
+
+<가제보>
+실행 : gazebo		ros2 launch gazebo_ros gazebo.launch.py (node까지 실행)
+종료(완전) : pkill -9 gz
+
+<Rviz2>
+실행 : ros2 launch turtlebot3_bringup rviz2.launch.py
