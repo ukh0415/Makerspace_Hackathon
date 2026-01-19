@@ -23,7 +23,7 @@ class FourWheelDriveController(Node):
         self.last_time = self.get_clock().now()
 
         # 3. ROS2 통신
-        self.cmd_sub = self.create_subscription(Twist, '/cmd_vel', self.cmd_callback, 10)
+        self.cmd_sub = self.create_subscription(Twist, '/cmd_vel', self.cmd_callback, 10) #여기서 ros2 로봇 기본노드1에서 발행하는 /cmd_ve토픽구독
         self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
         self.timer = self.create_timer(0.05, self.update_odometry) # 20Hz
 
