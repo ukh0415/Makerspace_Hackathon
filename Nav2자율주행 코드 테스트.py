@@ -9,7 +9,8 @@ def main():
 
     # 로봇의 초기 위치 설정
     initial_pose = PoseStamped()
-    initial_pose.header.frame_id = 'map'
+    initial_pose.header.frame_id = 'map' #내가 설정하는 위치정보가 어떤 맵을 기준으로 하는가, map=(0,0,0)?
+    #slam으로 만든 지도의 절대 원점
     initial_pose.header.stamp = navigator.get_clock().now().to_msg()
     initial_pose.pose.position.x = 0.0
     initial_pose.pose.position.y = 0.0
