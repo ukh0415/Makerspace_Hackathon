@@ -24,7 +24,7 @@ class FourWheelDriveController(Node):
 
         # 3. ROS2 통신
         self.cmd_sub = self.create_subscription(Twist, '/cmd_vel', self.cmd_callback, 10) #여기서 ros2 로봇 기본노드1에서 발행하는 /cmd_ve토픽구독
-        self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
+        self.odom_pub = self.create_publisher(Odometry, '/odom', 10) #/odom이라는 토픽 생성
         self.timer = self.create_timer(0.05, self.update_odometry) # 20Hz주기로 로봇의 위치 최신화
 
         # 4. GPIO 설정 및 인터럽트 등록 (생략된 핀은 위 표 참고)
@@ -61,8 +61,8 @@ class FourWheelDriveController(Node):
         self.y += delta_d * math.sin(self.th + delta_th / 2.0)
         self.th += delta_th
 
-       def publish_odom(self, current_time):
-         odom_msg = Odometry()
+    def publish_odom(self, current_time):
+        odom_msg = Odometry()
 
     # 1. Header 설정
         odom_msg.header.stamp = current_time.to_msg()
@@ -90,7 +90,7 @@ class FourWheelDriveController(Node):
         
         # 틱 초기화 및 시간 갱신
         for k in self.ticks: self.ticks[k] = 0
-        self.last_time = current_time
+        self.last_time = current_time #시간 업데이트
 
     def cmd_callback(self, msg):
         # 4륜 구동 모터 출력 제어 로직 (앞서 배운 2륜 확장형 사용)
