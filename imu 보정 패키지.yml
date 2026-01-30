@@ -1,0 +1,24 @@
+# ekf_filter_node.yaml 예시
+ekf_filter_node:
+  ros__parameters:
+    frequency: 30.0
+    sensor_timeout: 0.1
+    two_d_mode: true  # 평면 로봇이므로 2D 모드 활성
+    publish_tf: true
+
+    # 1. 바퀴 인코더 데이터 (Odometry)
+    odom0: /odom
+    odom0_config: [true,  true,  false, # x, y, z 위치
+                   false, false, true,  # roll, pitch, yaw 회전
+                   true,  true,  false, # vx, vy, vz 선속도
+                   false, false, true,  # v_roll, v_pitch, v_yaw 각속도
+                   false, false, false] # 가속도
+
+    # 2. IMU 데이터
+    imu0: /imu/data
+    imu0_config: [false, false, false, # 위치 사용 안 함
+                  false, false, true,  # Yaw(회전) 정보 사용 (매우 중요)
+                  false, false, false, # 선속도 사용 안 함
+                  false, false, true,  # 각속도 사용
+                  false, false, false] # 가속도 사용 안 함
+#odom0_config에서는 바퀴의 이동(x, y)을 주로 믿고, imu0_config에서는 회전(yaw) 정보를 믿도록 설정하여 바퀴 미끄러짐으로 인한 회전 오차를 잡아낸다
